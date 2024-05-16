@@ -4,8 +4,8 @@ from geopy.geocoders import Nominatim
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 
-user_data = pd.read_excel('/Users/yerimmoon/Documents/3800/userdata.xlsx')
-performance_data = pd.read_excel('/Users/yerimmoon/Documents/3800/performancedata.xlsx')
+user_data = pd.read_excel('userdata.xlsx')
+performance_data = pd.read_excel('performancedata.xlsx')
 
 # Reset the index to create a new column 'user_id'
 user_data.reset_index(inplace=True)
@@ -20,7 +20,7 @@ performance_data['latitude'] = performance_data['location'].apply(lambda x: geol
 performance_data['longitude'] = performance_data['location'].apply(lambda x: geolocator.geocode(x).longitude)
 
 #performance_data.drop(columns=['UUID'])
-# user_data.head()
+#user_data.head()
 # user_data.describe()
 
 scaler = StandardScaler()
@@ -41,8 +41,6 @@ user_data['kmenas_3'] = user_kmeans.labels_
 performance_data
 
 plt.scatter(x=performance_data['latitude_T'], y=performance_data['longitude_T'], c=performance_data['kmenas_3'])
-# plt.xlim(39,42)
-# plt.ylim(-75, -88)
 plt.xlim(-3,5)
 plt.ylim(4, -3)
 plt.show()
