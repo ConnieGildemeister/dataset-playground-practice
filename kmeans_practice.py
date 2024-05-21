@@ -20,7 +20,7 @@ performance_data['latitude'] = performance_data['location'].apply(lambda x: geol
 performance_data['longitude'] = performance_data['location'].apply(lambda x: geolocator.geocode(x).longitude)
 
 #performance_data.drop(columns=['UUID'])
-#user_data.head()
+print(user_data.head())
 # user_data.describe()
 
 scaler = StandardScaler()
@@ -40,7 +40,7 @@ performance_data['kmenas_3'] = performance_kmeans.labels_
 user_data['kmenas_3'] = user_kmeans.labels_
 performance_data
 
-plt.scatter(x=performance_data['latitude_T'], y=performance_data['longitude_T'], c=performance_data['kmenas_3'])
-plt.xlim(-3,5)
-plt.ylim(4, -3)
-plt.show()
+# plt.scatter(x=performance_data['latitude_T'], y=performance_data['longitude_T'], c=performance_data['kmenas_3'])
+# plt.xlim(-3,5)
+# plt.ylim(4, -3)
+# plt.show()
